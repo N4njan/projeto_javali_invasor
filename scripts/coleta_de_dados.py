@@ -4,9 +4,9 @@ import os
 import time
 
 # Constantes do projeto
-TAXON_KEY = 2435099  # Sus scrofa
+TAXON_KEY = 7705930  # Sus scrofa
 PAIS = "BR"
-ANOS = list(range(2013, 2024))
+ANOS = list(range(2013, 2025))
 LIMITE = 300
 MAX_REGISTROS_POR_ANO = 3000
 PASTA_SAIDA = "dados"
@@ -52,7 +52,9 @@ def salvar_csv(df, ano):
         "scientificName", "eventDate", "decimalLatitude", "decimalLongitude",
         "stateProvince", "country", "basisOfRecord", "institutionCode"
     ]
-    df_filtrado = df[colunas_interesse]
+    colunas_existentes = [col for col in colunas_interesse if col in df.columns]
+    df_filtrado = df[colunas_existentes]
+
     caminho = os.path.join(PASTA_SAIDA, f"ocorrencias_javali_{ano}.csv")
     df_filtrado.to_csv(caminho, index=False)
     print(f"✅ Dados de {ano} salvos em: {caminho}")
