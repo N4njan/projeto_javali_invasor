@@ -1,0 +1,13 @@
+# Ignorar ambiente virtual
+venv/
+
+# Ignorar arquivos temporários
+__pycache__/
+*.pyc
+
+# Ignorar arquivos do VS Code / Cursor
+.vscode/
+
+# Dados gerados
+dados/*.csv
+outputs/
