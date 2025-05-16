@@ -9,5 +9,5 @@ __pycache__/
 .vscode/
 
 # Dados gerados
-dados/*.csv
+
 outputs/
